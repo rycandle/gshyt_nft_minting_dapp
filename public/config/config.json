@@ -1,18 +1,19 @@
 {
-  "CONTRACT_ADDRESS": "0x67d9f4F16d69b046EF92459Cc6076E74161c1e6f",
-  "SCAN_LINK": "https://polygonscan.com/token/0x827acb09a2dc20e39c9aad7f7190d9bc53534192",
+  "CONTRACT_ADDRESS": "0x0bA40fe72A0E759b7D0bcAC08aE63ADdA079172A",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x0ba40fe72a0e759b7d0bcac08ae63adda079172a",
   "NETWORK": {
     "NAME": "Rinkeby",
-    "SYMBOL": "RK",
+    "SYMBOL": "ETH",
     "ID": 4
   },
-  "NFT_NAME": "Nerdy Coder Clones",
-  "SYMBOL": "NCC",
-  "MAX_SUPPLY": 1000,
-  "WEI_COST": 20000000000000000,
-  "DISPLAY_COST": 0.02,
+  "NFT_NAME": "Bear Presale",
+  "SYMBOL": "BEAR",
+  "MAX_SUPPLY": 3000,
+  "WEI_COST": 60000000000000000,
+  "DISPLAY_COST": 0.06,
   "GAS_LIMIT": 3000000,
+  "MINT_AMOUNT": 1,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/nerdy-coder-clones",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/bearpresaletest-v2",
   "SHOW_BACKGROUND": true
 }

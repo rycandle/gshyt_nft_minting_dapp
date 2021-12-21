@@ -1,6 +1,6 @@
 {
-  "CONTRACT_ADDRESS": "0x0bA40fe72A0E759b7D0bcAC08aE63ADdA079172A",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x0ba40fe72a0e759b7d0bcac08ae63adda079172a",
+  "CONTRACT_ADDRESS": "0x49ceb5dA752C2a2C61751C47e650A5Fec77bba8c",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x49ceb5dA752C2a2C61751C47e650A5Fec77bba8c",
   "NETWORK": {
     "NAME": "Rinkeby",
     "SYMBOL": "ETH",
@@ -8,12 +8,12 @@
   },
   "NFT_NAME": "Bear Presale",
   "SYMBOL": "BEAR",
-  "MAX_SUPPLY": 3000,
+  "MAX_SUPPLY": 150,
   "WEI_COST": 60000000000000000,
   "DISPLAY_COST": 0.06,
   "GAS_LIMIT": 3000000,
   "MINT_AMOUNT": 1,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/bearpresaletest-v2",
+  "MARKETPLACE_LINK": "",
   "SHOW_BACKGROUND": true
 }

@@ -146,13 +146,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "reveal",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -321,6 +314,19 @@
 			}
 		],
 		"name": "setOnlyWhitelisted",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_isRevealed",
+				"type": "bool"
+			}
+		],
+		"name": "setRevealed",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

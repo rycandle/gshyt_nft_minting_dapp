@@ -171,6 +171,7 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.jpg" : null}
       >
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
@@ -180,8 +181,9 @@ function App() {
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "var(--accent)",
+              backgroundColor: "rgba(26,26,26,0.75)",
               padding: 24,
+              borderRadius: "10px"
             }}
           >
             <s.TextTitle

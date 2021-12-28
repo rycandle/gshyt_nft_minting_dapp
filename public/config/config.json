@@ -8,7 +8,7 @@
   },
   "NFT_NAME": "Bear Presale",
   "SYMBOL": "BEAR",
-  "MAX_SUPPLY": 150,
+  "MAX_SUPPLY": 6,
   "WEI_COST": 60000000000000000,
   "DISPLAY_COST": 0.06,
   "GAS_LIMIT": 3000000,

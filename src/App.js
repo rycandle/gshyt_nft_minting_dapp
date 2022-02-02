@@ -145,7 +145,8 @@ function App() {
             .then((receipt) => {
                 console.log(receipt);
                 setFeedback(
-                    `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+                    `Congratulations, the ${CONFIG.NFT_NAME} has made you a co-founder of a startup! 
+                    To claim your equity visit the Claim SAFE section!`
                 );
                 setClaimingNft(false);
                 dispatch(fetchData(blockchain.account));

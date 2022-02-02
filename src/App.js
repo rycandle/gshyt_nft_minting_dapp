@@ -145,8 +145,7 @@ function App() {
             .then((receipt) => {
                 console.log(receipt);
                 setFeedback(
-                    `Congratulations, the ${CONFIG.NFT_NAME} has made you a co-founder of a startup! 
-                    To claim your equity visit the Claim SAFE section!`
+                    `Congratulations, the ${CONFIG.NFT_NAME} has made you a co-founder!`
                 );
                 setClaimingNft(false);
                 dispatch(fetchData(blockchain.account));
@@ -300,8 +299,7 @@ function App() {
                                         color: "var(--accent-text)",
                                     }
                                 } >
-                                Connect to the { CONFIG.NETWORK.NAME }
-                                network <
+                                Connect to { CONFIG.NETWORK.NAME } <
                                 /s.TextDescription> <
                                 s.SpacerSmall / >
                                 <
@@ -312,7 +310,7 @@ function App() {
                                         getData();
                                     }
                                 } >
-                                CONNECT <
+                                SYNC <
                                 /StyledButton> {
                                 blockchain.errorMsg !== "" ? ( <
                                     >
@@ -423,9 +421,7 @@ function App() {
                 color: "var(--primary-text)",
             }
         } >
-        Please make sure you are connected to the right network({ CONFIG.NETWORK.NAME }
-            Mainnet) and the correct address.Please note:
-        Once you make the purchase, you cannot undo this action. <
+        Make sure you are connected to the right network({ CONFIG.NETWORK.NAME }). <
         /s.TextDescription> <
     s.SpacerSmall / >
         <
@@ -435,12 +431,8 @@ function App() {
                 color: "var(--primary-text)",
             }
         } >
-        We have set the gas limit to { CONFIG.GAS_LIMIT }
-    for the contract to successfully mint your NFT.We recommend that you don 't lower the
-    gas limit. <
-        /s.TextDescription> < /
-    s.Container > <
-        /s.Container> < /
+        We have set the gas limit to { CONFIG.GAS_LIMIT } < /
+    s.TextDescription > < /s.Container > < /s.Container > < /
     s.Screen >
 );
 }

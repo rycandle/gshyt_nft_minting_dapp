@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
@@ -9,14 +10,18 @@ const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
 export const StyledButton = styled.button`
-  padding: 12px 10px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 50px;
   border: none;
   background-color: var(--secondary);
+  padding: 10px;
   font-weight: bold;
-  color: #1a1a1a;
-  width: 200px;
+  color: var(--secondary-text);
+  width: 100px;
   cursor: pointer;
+  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   :active {
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -61,6 +66,15 @@ export const ResponsiveWrapper = styled.div`
   }
 `;
 
+export const StyledLogo = styled.img`
+  width: 200px;
+  @media (min-width: 767px) {
+    width: 300px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
 export const StyledImg = styled.img`
   box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
   border: 4px dashed var(--secondary);
@@ -86,7 +100,8 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Click claim to mint your NFT.`);
+  const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -101,7 +116,6 @@ function App() {
     WEI_COST: 0,
     DISPLAY_COST: 0,
     GAS_LIMIT: 0,
-    MINT_AMOUNT: 1,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
@@ -110,7 +124,6 @@ function App() {
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
-    let mintAmount = CONFIG.MINT_AMOUNT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostWei);
@@ -138,6 +151,22 @@ function App() {
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
       });
+  };
+
+  const decrementMintAmount = () => {
+    let newMintAmount = mintAmount - 1;
+    if (newMintAmount < 1) {
+      newMintAmount = 1;
+    }
+    setMintAmount(newMintAmount);
+  };
+
+  const incrementMintAmount = () => {
+    let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 4) {
+      newMintAmount = 4;
+    }
+    setMintAmount(newMintAmount);
   };
 
   const getData = () => {
@@ -171,19 +200,25 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.jpg" : null}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
+        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
+          <s.Container flex={1} jc={"center"} ai={"center"}>
+            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
+          </s.Container>
           <s.SpacerLarge />
           <s.Container
             flex={2}
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "rgba(26,26,26,0.75)",
+              backgroundColor: "var(--accent)",
               padding: 24,
-              borderRadius: "10px"
+              borderRadius: 24,
+              border: "4px dashed var(--secondary)",
+              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
             <s.TextTitle
@@ -258,7 +293,7 @@ function App() {
                         getData();
                       }}
                     >
-                      CONNECT WALLET
+                      CONNECT
                     </StyledButton>
                     {blockchain.errorMsg !== "" ? (
                       <>
@@ -284,6 +319,38 @@ function App() {
                     >
                       {feedback}
                     </s.TextDescription>
+                    <s.SpacerMedium />
+                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                      <StyledRoundButton
+                        style={{ lineHeight: 0.4 }}
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          decrementMintAmount(1);
+                        }}
+                      >
+                        -
+                      </StyledRoundButton>
+                      <s.SpacerMedium />
+                      <s.TextDescription
+                        style={{
+                          textAlign: "center",
+                          color: "var(--accent-text)",
+                        }}
+                      >
+                        {mintAmount}
+                      </s.TextDescription>
+                      <s.SpacerMedium />
+                      <StyledRoundButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount(1);
+                        }}
+                      >
+                        +
+                      </StyledRoundButton>
+                    </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
@@ -294,7 +361,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "BUY"}
+                        {claimingNft ? "BUSY" : "CLAIM"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -304,6 +371,13 @@ function App() {
             <s.SpacerMedium />
           </s.Container>
           <s.SpacerLarge />
+          <s.Container flex={1} jc={"center"} ai={"center"}>
+            <StyledImg
+              alt={"example"}
+              src={"/config/images/example.gif"}
+              style={{ transform: "scaleX(-1)" }}
+            />
+          </s.Container>
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
@@ -314,15 +388,8 @@ function App() {
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address.
-          </s.TextDescription>
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-text)",
-            }}
-          >
-            Please note: Once you make the purchase, you cannot undo this action.
+            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
+            Once you make the purchase, you cannot undo this action.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
@@ -332,7 +399,8 @@ function App() {
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT.
+            successfully mint your NFT. We recommend that you don't lower the
+            gas limit.
           </s.TextDescription>
         </s.Container>
       </s.Container>

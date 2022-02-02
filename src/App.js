@@ -99,7 +99,7 @@ function App() {
     const blockchain = useSelector((state) => state.blockchain);
     const data = useSelector((state) => state.data);
     const [claimingNft, setClaimingNft] = useState(false);
-    const [feedback, setFeedback] = useState(`Click claim to mint your NFT.`);
+    const [feedback, setFeedback] = useState(`Click claim to mint your FMC Card.`);
     const [mintAmount, setMintAmount] = useState(1);
     const [CONFIG, SET_CONFIG] = useState({
         CONTRACT_ADDRESS: "",

@@ -1,19 +1,19 @@
 {
-    "CONTRACT_ADDRESS": "0xF231c495d4eaD805Dd8B468236F76E810AB7F6Ec",
-    "SCAN_LINK": "https://rinkeby.etherscan.io/address/0xE01e8df2Cc6E4b415E77f26646C84c5626dAb11E",
+    "CONTRACT_ADDRESS": "0x8d24906db977De067aF542346736ceA1684Fc89B",
+    "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x8d24906db977de067af542346736cea1684fc89b",
     "NETWORK": {
-        "NAME": "Rinkby",
-        "SYMBOL": "ETH",
-        "ID": 4
+      "NAME": "Testnet",
+      "SYMBOL": "ETH",
+      "ID": 4
     },
-    "NFT_NAME": "FMC Card ",
-    "SYMBOL": "FMC Card ",
-    "MAX_SUPPLY": 10000,
-    "WEI_COST": 240000000000000000,
-    "DISPLAY_COST": 0.24,
-    "GAS_LIMIT": 3000000,
-    "MINT_AMOUNT": 1,
+    "NFT_NAME": "Hooded Hearts",
+    "SYMBOL": "HH",
+    "MAX_SUPPLY": 6666,
+    "WEI_COST": 50000000000000000,
+    "DISPLAY_COST": 0.05,
+    "GAS_LIMIT": 300000,
     "MARKETPLACE": "Opeansea",
-    "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/the-startup-jd3dxgvrja",
+    "MARKETPLACE_LINK": "https://",
     "SHOW_BACKGROUND": true
-}
+  }
+  

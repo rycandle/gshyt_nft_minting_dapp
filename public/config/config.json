@@ -6,14 +6,14 @@
       "SYMBOL": "ETH",
       "ID": 4
     },
-    "NFT_NAME": "Gshyt The NFT",
-    "SYMBOL": "GShyt",
-    "MAX_SUPPLY": 3333,
+    "NFT_NAME": "Hooded Hearts",
+    "SYMBOL": "HOOD ",
+    "MAX_SUPPLY": 6666,
     "WEI_COST": 50000000000000000,
     "DISPLAY_COST": 0.05,
     "GAS_LIMIT": 300000,
     "MARKETPLACE": "Opeansea",
-    "MARKETPLACE_LINK": "https://",
+    "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/hooded-hearts",
     "SHOW_BACKGROUND": true
   }
   
